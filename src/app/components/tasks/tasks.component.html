@@ -1,4 +1,5 @@
 <ul>
+  <app-add-task (onAddTask)="addTask($event)"></app-add-task>
   @for (task of listTasks; track task.id) {
   <app-task-item
     [task]="task"

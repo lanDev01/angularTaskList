@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task-model';
 import { TaskItemComponent } from '../task-item/task-item.component';
+import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskItemComponent],
+  imports: [TaskItemComponent, AddTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss',
 })
@@ -24,6 +25,13 @@ export class TasksComponent implements OnInit {
     });
   }
 
+  addTask(task: Task) {
+    console.log(task)
+    this.taskService.addTask(task).subscribe((task) => {
+      this.listTasks.push(task);
+    });
+  }
+
   deleteTask(task: Task) {
     console.log(task);
     this.taskService.deleteTask(task).subscribe(() => {
@@ -34,6 +42,6 @@ export class TasksComponent implements OnInit {
   toggleConcluded(task: Task) {
     task.concluded = !task.concluded;
 
-    this.taskService.updateTask(task).subscribe()
+    this.taskService.updateTask(task).subscribe();
   }
 }
