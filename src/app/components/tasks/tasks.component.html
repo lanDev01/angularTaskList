@@ -1,0 +1,7 @@
+<ul>
+  @for (task of listTasks; track task.id) {
+  <app-task-item [task]="task"></app-task-item>
+  } @empty {
+  <li>There are no items.</li>
+  }
+</ul>
