@@ -3,12 +3,14 @@
     {
       "id": "1",
       "task": "Estudar c#",
-      "category": false
+      "category": "Faculdade",
+      "concluded": false
     },
     {
       "id": "2",
       "task": "Estudar angular",
-      "category": true
+      "category": "Trabalho",
+      "concluded": false
     }
   ]
 }

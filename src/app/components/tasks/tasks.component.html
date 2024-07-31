@@ -1,6 +1,10 @@
 <ul>
   @for (task of listTasks; track task.id) {
-  <app-task-item [task]="task" (onDeleteTask)="deleteTask($event)"></app-task-item>
+  <app-task-item
+    [task]="task"
+    (onDeleteTask)="deleteTask($event)"
+    (onToggleConcluded)="toggleConcluded($event)"
+  ></app-task-item>
   } @empty {
   <li>There are no items.</li>
   }

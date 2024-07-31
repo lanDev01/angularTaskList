@@ -27,7 +27,13 @@ export class TasksComponent implements OnInit {
   deleteTask(task: Task) {
     console.log(task);
     this.taskService.deleteTask(task).subscribe(() => {
-      this.listTasks = this.listTasks.filter((t) => t.id == task.id)
+      this.listTasks = this.listTasks.filter((t) => t.id == task.id);
     });
+  }
+
+  toggleConcluded(task: Task) {
+    task.concluded = !task.concluded;
+
+    this.taskService.updateTask(task).subscribe()
   }
 }
