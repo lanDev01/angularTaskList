@@ -7,12 +7,15 @@ import { Task } from '../models/task-model';
   providedIn: 'root',
 })
 export class TaskService {
-
   private apiUrl = 'http://localhost:3000/listTasks';
 
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<Task[]>{
-    return this.http.get<Task[]>(this.apiUrl)
+  getTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.apiUrl);
+  }
+
+  deleteTask(task: Task): Observable<Task> {
+    return this.http.delete<Task>(`${this.apiUrl}/${task.id}`);
   }
 }

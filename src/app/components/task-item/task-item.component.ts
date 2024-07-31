@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task-model';
-import { faTimes } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,10 +9,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FontAwesomeModule, CommonModule],
   templateUrl: './task-item.component.html',
-  styleUrl: './task-item.component.scss'
+  styleUrl: './task-item.component.scss',
 })
 export class TaskItemComponent {
-  @Input() task!: Task
+  @Input() task!: Task;
+  @Output() onDeleteTask = new EventEmitter<Task>();
 
-  faTimes = faTimes
+  faTimes = faTimes;
+
+  onDelete(task: Task) {
+    this.onDeleteTask.emit(task);
+  }
 }

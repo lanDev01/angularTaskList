@@ -1,13 +1,13 @@
 {
   "listTasks": [
     {
-      "id": 1,
+      "id": "1",
       "task": "Estudar c#",
       "category": false
     },
     {
-      "id": 2,
-      "task": "Estudar Angular",
+      "id": "2",
+      "task": "Estudar angular",
       "category": true
     }
   ]
