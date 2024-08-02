@@ -1,3 +1,10 @@
+@if (showAddTask) {
+<app-button text="Fechar" color="red" (buttonClick)="closeAdd(false)"></app-button>
+} @else {
+<app-button text="Adicionar Tarefa" color="green" (buttonClick)="closeAdd(true)"></app-button>
+}
+
+@if (showAddTask) {
 <form (ngSubmit)="onSubmit()">
   <div>
     <label for="text">Task:</label>
@@ -14,7 +21,12 @@
   <div>
     <label for="category">Categoria:</label>
 
-    <select name="category" id="category" class="form-select" [(ngModel)]="category">
+    <select
+      name="category"
+      id="category"
+      class="form-select"
+      [(ngModel)]="category"
+    >
       <option value="" disabled>Selecione uma categoria</option>
       <option value="Casa">Casa</option>
       <option value="Trabalho">Trabalho</option>
@@ -26,3 +38,4 @@
 
   <input type="submit" value="Salvar Task" class="" />
 </form>
+}

@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Task } from '../../models/task-model';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ButtonComponent],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',
 })
@@ -15,6 +16,7 @@ export class AddTaskComponent {
   task: string = '';
   category: string = '';
   concluded: boolean = false;
+  showAddTask: boolean = false
 
   onSubmit() {
     if (!this.task) {
@@ -33,5 +35,9 @@ export class AddTaskComponent {
     this.task = '';
     this.category = '';
     this.concluded = false;
+  }
+
+  closeAdd(isShowTask: boolean) {
+    this.showAddTask = isShowTask
   }
 }
