@@ -1,1 +1,8 @@
-<button [ngStyle]="{'background': color}" (click)="onClick()">{{ text }}</button>
+<button
+  hlmBtn
+  variant="outline"
+  (click)="onClick()"
+  class="rounded-[8px] mb-2 text-zinc-200 hover:text-zinc-950"
+>
+  {{ text }}
+</button>

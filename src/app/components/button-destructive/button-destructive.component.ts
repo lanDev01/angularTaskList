@@ -1,18 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-button-destructive',
   standalone: true,
-  imports: [CommonModule, HlmButtonDirective],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+  imports: [HlmButtonDirective],
+  templateUrl: './button-destructive.component.html',
+  styleUrl: './button-destructive.component.scss'
 })
-export class ButtonComponent {
+export class ButtonDestructiveComponent {
   @Input() text: string = '';
-  @Input() color: string = '';
-
   @Output() buttonClick = new EventEmitter();
 
   onClick() {
