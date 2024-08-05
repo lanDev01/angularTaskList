@@ -1,41 +1,51 @@
-@if (showAddTask) {
-<app-button text="Fechar" color="red" (buttonClick)="closeAdd(false)"></app-button>
-} @else {
-<app-button text="Adicionar Tarefa" color="green" (buttonClick)="closeAdd(true)"></app-button>
-}
+<app-button
+  text="Adicionar Tarefa"
+  color="green"
+  (buttonClick)="closeAdd(true)"
+></app-button>
 
 @if (showAddTask) {
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="text">Task:</label>
-    <input
-      type="text"
-      id="text"
-      name="text"
-      class="form-control"
-      placeholder="Adicionar Tarefa"
-      [(ngModel)]="task"
-    />
+<form
+  (ngSubmit)="onSubmit()"
+  class="h-screen w-full flex items-center justify-center bg-black/75 absolute top-0 left-0"
+>
+  <div
+    class="bg-zinc-900 h-auto flex items-center flex-col rounded-sm"
+  >
+    <div class="flex flex-col h-auto max-w-5xl w-full rounded-sm p-4">
+      <label for="text" class="text-zinc-200 text-xl">Task:</label>
+      <input
+        type="text"
+        id="text"
+        name="text"
+        class="w-80 p-2 rounded-sm text-zinc-200 bg-zinc-800 border border-zinc-500 my-2"
+        placeholder="Adicionar Tarefa"
+        [(ngModel)]="task"
+      />
+    </div>
+
+    <div class="flex flex-col h-auto max-w-5xl w-full rounded-sm px-4 pb-4">
+      <label for="category" class="text-zinc-200 text-xl">Categoria:</label>
+
+      <select
+        name="category"
+        id="category"
+        class="w-80 p-2 rounded-sm text-zinc-200 bg-zinc-800 border border-zinc-500 my-2"
+        [(ngModel)]="category"
+      >
+        <option value="" disabled>Selecione uma categoria</option>
+        <option value="Casa">Casa</option>
+        <option value="Trabalho">Trabalho</option>
+        <option value="Faculdade">Faculdade</option>
+        <option value="Academia">Academia</option>
+        <option value="Lazer">Lazer</option>
+      </select>
+    </div>
+
+    <div class="w-full flex items-center justify-center gap-2 mb-4">
+      <app-button text="Fechar" (buttonClick)="closeAdd(false)"></app-button>
+      <app-button type="submit" text="Salvar Task"></app-button>
+    </div>
   </div>
-
-  <div>
-    <label for="category">Categoria:</label>
-
-    <select
-      name="category"
-      id="category"
-      class="form-select"
-      [(ngModel)]="category"
-    >
-      <option value="" disabled>Selecione uma categoria</option>
-      <option value="Casa">Casa</option>
-      <option value="Trabalho">Trabalho</option>
-      <option value="Faculdade">Faculdade</option>
-      <option value="Academia">Academia</option>
-      <option value="Lazer">Lazer</option>
-    </select>
-  </div>
-
-  <input type="submit" value="Salvar Task" class="" />
 </form>
 }
